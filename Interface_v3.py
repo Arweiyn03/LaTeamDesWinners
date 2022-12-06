@@ -20,25 +20,29 @@ class tabs :
         
 
         #Creation de mon premier onglet et de son slider
-        fTab = cmds.rowColumnLayout(numberOfColumns=3)
+
         
-        cmds.tabLayout(createWindow.tabs, edit = True, tabLabel = [fTab,'Edit World'])    
+        fTab = cmds.rowColumnLayout(numberOfColumns=6, columnWidth=[(1, 150), (2, 150), (3, 150), ],columnSpacing = [(1, 10), (2, 10), (3, 10), (4, 10), (5, 10),(6,10)], rowSpacing = [(1, 10), (2, 10), (3, 10)],bgc=[0,0.7,0.2])
+        cmds.tabLayout(createWindow.tabs, edit = True, tabLabel = [fTab,"Exemple d'images"])
         
+        cmds.separator(height=20)
+        cmds.separator(height=20)
+
         
-        
+
   
 
         #Creation de mes boutons       
-        cmds.text(label="Nombre de chemins")
-        sliderespacemesh = cmds.intSliderGrp(min = 0, max = 100,sliderStep = 1, value = 20)
+        cmds.text(label="Espace entre les mesh")
+        sliderespacemesh = cmds.intSliderGrp(min = 0, max = 100,sliderStep = 1,field = True, value = 20)
         
-        cmds.nodeIconButton( style='iconOnly', command='cmds.sphere()', image1="D:\LaTeamDesWinners\chat1.png" )
-        
-        cmds.text(label="Tailles moyennes des chemins")
+        cmds.text(label="Resolution")
         sliderresolution = cmds.intSliderGrp(min = 0, max = 100,sliderStep = 1,field = True, value = 20)
         
-        cmds.text(label="Nombre d'arbre")
+        cmds.text(label="Mesh Principale")
         slidermeshprinc = cmds.floatSliderGrp(min = 0.1, max = 0.5,sliderStep = 0.001,field = True, value = 0.2, bgc=[0,0.7,0.2])
+        
+        
         
         cmds.text(label="Nombre de biomes type 1")
         slidermap = cmds.intSliderGrp(min = 0, max = 5,sliderStep = 1,field = True, value = 3)
@@ -61,6 +65,7 @@ class tabs :
         cmds.nodeIconButton( style='iconOnly', command='cmds.sphere()', image1="D:\LaTeamDesWinners\chat4.png" )
         cmds.nodeIconButton( style='iconOnly', command='cmds.sphere()', image1="D:\LaTeamDesWinners\chat1.png" )
         cmds.nodeIconButton( style='iconOnly', command='cmds.sphere()', image1="D:\LaTeamDesWinners\chat2.png" )
+        cmds.frameLayout( label='oui',collapsable=True, collapse=True, )
         cmds.text(label="Ceci est un chat", hlc=[0,0.7,0.2])
         cmds.text(label="Ceci est un chat")
         cmds.text(label="Ceci est un chat")
